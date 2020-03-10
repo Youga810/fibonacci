@@ -1,15 +1,16 @@
 'use strict';
-const memo = new Map();
-memo.set(0,0);
-memo.set(1,1);
+var fibo = [];
 function fib(n){
-    if(memo.has(n)){
-        return memo.get(n);
+    fibo[0] = 0;
+    fibo[1] = 1;
+    if(n === 0){
+        return 0;
     }
-    
-    const value = fib(n - 1)+fib(n-2);
-    memo.set(n,value);
-    return memo.get(n);
+    if(n === 1){
+        return 1;
+    }
+    fibo[n] = fibo[n-1]+fibo[n-2];
+    return fibo[n];
 }
 const length = 100;
 for(let i = 0;i <= length;i++){
